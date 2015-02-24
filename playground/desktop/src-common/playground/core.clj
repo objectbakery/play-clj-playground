@@ -40,10 +40,11 @@
            block1 (create-shape (create-block 0 0))
            block2 (create-shape (create-block 1 0))
            block3 (create-shape (create-block 2 0))
+           block4 (create-shape (create-block 10 7))
            screen (update! screen :renderer (stage) :camera camera)]
        (width! screen scr-width)
        (height! screen scr-height)
-       [block1 block2 block3]))
+       [block1 block2 block3 block4]))
 
    :on-resize
    (fn [screen entities]
