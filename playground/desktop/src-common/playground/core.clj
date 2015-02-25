@@ -2,7 +2,8 @@
   (:require [play-clj.core :refer :all]
             [play-clj.ui :refer :all]
             [play-clj.g2d :refer :all]
-            [play-clj.math :refer :all]))
+            [play-clj.math :refer :all]
+            [playground.levels :as l]))
 
 (def ^:const cam-width 10)
 (def ^:const cam-height 7)
@@ -40,8 +41,6 @@
            block3 (create-shape (create-block 2 0))
            block4 (create-shape (create-block 10 7))
            screen (update! screen :renderer (stage) :camera camera)]
-       ;(width! screen scr-width)
-       ;(height! screen scr-height)
        [block1 block2 block3 block4]))
 
    :on-resize

@@ -15,6 +15,6 @@
                  [play-clj "0.4.4"]]
   
   :source-paths ["src" "src-common"]
-  :javac-options ["-target" "1.6" "-source" "1.6" "-Xlint:-options"]
+  :javac-options ["-target" "1.7" "-source" "1.7" "-Xlint:-options"]
   :aot [playground.core.desktop-launcher]
   :main playground.core.desktop-launcher)
