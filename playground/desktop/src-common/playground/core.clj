@@ -4,8 +4,6 @@
             [play-clj.g2d :refer :all]
             [play-clj.math :refer :all]))
 
-(def ^:const scr-width 480)
-(def ^:const scr-height 320)
 (def ^:const cam-width 10)
 (def ^:const cam-height 7)
 
@@ -22,7 +20,7 @@
 
     (shape :line
            :set-color (color :red)
-           :rect (+ x rec-x) (+ y rec-y) width height)))
+           :rect x y width height)))
 
 (defn create-block [x-pos y-pos]
   (let [size      (float 1)

@@ -4,7 +4,10 @@
            [org.lwjgl.input Keyboard])
   (:gen-class))
 
+(def ^:const scr-width 480)
+(def ^:const scr-height 320)
+
 (defn -main
   []
-  (LwjglApplication. playground "playground" 800 600)
+  (LwjglApplication. playground "playground" scr-width scr-height)
   (Keyboard/enableRepeatEvents true))
