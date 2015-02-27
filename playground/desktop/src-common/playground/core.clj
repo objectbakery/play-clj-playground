@@ -31,17 +31,19 @@
      :position position
      :bounds   bounds}))
 
+(defn create-level [level]
+  (let [block1 (create-shape (create-block 0 0))
+        block2 (create-shape (create-block 1 0))
+        block3 (create-shape (create-block 2 0))
+        block4 (create-shape (create-block 9 6))]
+    [block1 block2 block3 block4]))
 
 (defscreen main-screen
    :on-show
    (fn [screen entities]
      (let [camera (orthographic :set-to-ortho false cam-width cam-height)
-           block1 (create-shape (create-block 0 0))
-           block2 (create-shape (create-block 1 0))
-           block3 (create-shape (create-block 2 0))
-           block4 (create-shape (create-block 10 7))
            screen (update! screen :renderer (stage) :camera camera)]
-       [block1 block2 block3 block4]))
+       (create-level (l/level-one))))
 
    :on-resize
    (fn [screen entities]
