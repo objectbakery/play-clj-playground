@@ -13,12 +13,7 @@
   (let [x       (x position)
         y       (y position)
         width   (rectangle! bounds :get-width)
-        height  (rectangle! bounds :get-height)
-        rec-x   (rectangle! bounds :get-x)
-        rec-y   (rectangle! bounds :get-y)]
-
-    (println (str "x: " x ", y:" y ", height: " height ", width: " width ", rec-x: " rec-x ", rec-y: " rec-y))
-
+        height  (rectangle! bounds :get-height)]
     (shape :line
            :set-color (color :red)
            :rect x y width height)))
@@ -32,13 +27,17 @@
      :bounds   bounds}))
 
 (defn create-level [level]
-  (let [block1 (create-shape (create-block 0 0))
-        block2 (create-shape (create-block 1 0))
-        block3 (create-shape (create-block 2 0))
-        block4 (create-shape (create-block 9 6))]
-    [block1 block2 block3 block4]))
+  (let [level-coords (l/get-level-coordinates level)]
+    (reduce
+      (fn [block-shapes coordinate]
+        (let [x (coordinate 0)
+              y (+ 1 (coordinate 1))]
+          (conj block-shapes (create-shape (create-block x (- cam-height y))))))
+      []
+      level-coords)))
 
 (defscreen main-screen
+
    :on-show
    (fn [screen entities]
      (let [camera (orthographic :set-to-ortho false cam-width cam-height)
