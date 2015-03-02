@@ -27,7 +27,7 @@
      :bounds   bounds}))
 
 (defn create-level [level]
-  (let [level-coords (l/get-level-coordinates level)]
+  (let [level-coords (l/get-cam-coordinates level cam-width cam-height)]
     (reduce
       (fn [block-shapes coordinate]
         (let [x (coordinate 0)
