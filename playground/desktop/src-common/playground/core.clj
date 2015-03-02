@@ -31,8 +31,8 @@
     (reduce
       (fn [block-shapes coordinate]
         (let [x (coordinate 0)
-              y (+ 1 (coordinate 1))]
-          (conj block-shapes (create-shape (create-block x (- cam-height y))))))
+              y (coordinate 1)]
+          (conj block-shapes (create-shape (create-block x y)))))
       []
       level-coords)))
 

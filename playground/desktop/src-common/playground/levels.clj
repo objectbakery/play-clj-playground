@@ -57,7 +57,13 @@
 (defn- transform-to-cam-coordinates
   "Transforms coordinates for correct display"
   [coordinates cam-witdh cam-height]
-  coordinates)
+  (map
+    (fn [current-coord]
+      (let [x (current-coord 0)
+            y (current-coord 1)
+            new-y (+ 1 y)]
+        [x (- cam-height new-y)]))
+    coordinates))
 
 (defn get-cam-coordinates
   "Get vector of level coordinates adjusted for camera"
